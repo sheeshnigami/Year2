@@ -102,21 +102,18 @@ public class NumberList {
 			System.out.println("Input is over 0. Try again!");
 			Descending();
 		} else {
-			int min = 0;
-			int max = 9;
-			for (int x = 0; x < input; x++) {
-				int RandomInt = (int)Math.floor(Math.random() * (int)(max-min + 1) + (int)min);
-				arr.add(RandomInt);
-			}
-			for (int x = 0; x < input; x++) {
-				if (x == 0) {
-					System.out.print("{ " + arr.get(x));
-				} else if (x == (input - 1)) {
-					System.out.print(", " + arr.get(x) + " }");
-				} else {
-					System.out.print(", " + arr.get(x));
-				}
-			}
+			int size = input;
+
+	        ArrayList<Integer> arr = new ArrayList<Integer>(size);
+	        for(int i = 1; i <= size; i++) {
+	            arr.add(i);
+	        }
+
+	        Random rand = new Random();
+	        while(arr.size() > 0) {
+	            int index = rand.nextInt(arr.size());
+	            System.out.print("[" + arr.remove(index) + "]");
+	        }
 		}
 		System.out.println("\n-----------------------------------------------");
 	}
